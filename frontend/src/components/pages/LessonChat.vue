@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     loadData() {
+      this.access = 0
       axios
           .get(
               this.$store.getters.getDomen + "api/v1/lessons/" + this.slug + "/",
@@ -66,10 +67,9 @@ export default {
           }, (error) => {
             console.log(error);
           });
-      this.access = 0
     },
     async sendMessage() {
-      if (this.message === ''){
+      if (this.message === '') {
         return
       }
       var data = {
